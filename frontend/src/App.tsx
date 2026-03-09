@@ -597,15 +597,20 @@ const QualificationForm = () => {
                                     <option value="3-6 Months">3-6 Months</option>
                                 </select>
                             </div>
-                            <div className="md:col-span-2 space-y-3">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-navy/40">{t('form.objective')}</label>
-                                <textarea
+                            <div className="md:col-span-2 space-y-4 group">
+                                <label className="text-[11px] font-bold uppercase tracking-[0.3em] text-navy/30 group-focus-within:text-gold transition-colors">{t('form.objective')}</label>
+                                <select
                                     required
-                                    rows={3}
-                                    className="w-full border-b border-navy/10 py-3 focus:border-gold outline-none transition-all duration-300 bg-transparent resize-none"
+                                    className="w-full border-b border-navy/10 py-4 focus:border-gold outline-none transition-all duration-500 bg-transparent appearance-none cursor-pointer text-xl font-light"
                                     value={formData.objective}
                                     onChange={e => setFormData({...formData, objective: e.target.value})}
-                                />
+                                >
+                                    <option value="">{t('form.objectiveOptions.select', { defaultValue: 'Select Objective' })}</option>
+                                    <option value="Yield">{t('form.objectiveOptions.yield')}</option>
+                                    <option value="Diversification">{t('form.objectiveOptions.diversification')}</option>
+                                    <option value="Residency Alignment">{t('form.objectiveOptions.residency')}</option>
+                                    <option value="Other">{t('form.objectiveOptions.other')}</option>
+                                </select>
                             </div>
                             <div className="md:col-span-2 pt-8">
                                 <button

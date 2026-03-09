@@ -93,7 +93,12 @@ const resources = {
         whatsapp: "WhatsApp Number",
         country: "Country of Residence",
         capital: "Capital Range",
-        objective: "Primary Objective",
+          objectiveOptions: {
+              yield: "Yield",
+              diversification: "Diversification",
+              residency: "Residency Alignment",
+              other: "Other"
+          },
         timeline: "Investment Timeline",
         submit: "Submit for Review",
         success: "Submission Successful / Under Review",
