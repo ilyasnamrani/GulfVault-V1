@@ -1,0 +1,40 @@
+services:
+  gaulfvault-backend:
+    build:
+      context: ./gaulfvault-laravel
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./gaulfvault-laravel/storage/app/data:/var/www/storage/app/data
+    environment:
+      - APP_NAME=Laravel
+      - APP_ENV=local
+      - APP_KEY=base64:tvIHr5Tliq7u98zaW7LcP/+A3SZg6G12RbhDeCI56IQ=
+      - APP_DEBUG=true
+      - DB_CONNECTION=mysql
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_DATABASE=leads
+      - DB_USERNAME=root
+      - DB_PASSWORD=ILYASSMI2024
+      - APP_URL=http://localhost:8000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - gulfvault-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - gaulfvault-backend
+    networks:
+      - gulfvault-network
+
+networks:
+  gulfvault-network:
+    driver: bridge

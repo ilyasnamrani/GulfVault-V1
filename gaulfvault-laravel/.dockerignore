@@ -1,0 +1,14 @@
+vendor/
+node_modules/
+.env
+.git
+.gitignore
+.editorconfig
+.phpunit.result.cache
+storage/*.xlsx
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*.php
+storage/logs/*.log
+tests/
+phpunit.xml
